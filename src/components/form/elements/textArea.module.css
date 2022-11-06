@@ -1,0 +1,31 @@
+.form__field {
+    display: flex;
+    margin-bottom: var(--space10);
+}
+
+.form__label {
+    flex: 1 1 350px;
+    display: inline-block;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.form__textArea {
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding: 1px 10px;
+    width: 100%;
+    transition-property: border-bottom-color;
+    transition-duration: .6s;
+}
+
+.form__textArea:link,
+.form__textArea:visited,
+.form__textArea:hover,
+.form__textArea:focus {
+    border-bottom: 1px solid lightseagreen;
+}
+
+.form__textArea--error {
+    border-bottom-color: crimson;
+}

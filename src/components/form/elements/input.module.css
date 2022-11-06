@@ -1,0 +1,31 @@
+.form__field {
+    display: flex;
+    margin-bottom: var(--space20);
+}
+
+.form__label {
+    flex: 1 1 350px;
+    display: inline-block;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.form__input {
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--light-gray);
+    padding: 12px;
+    width: 100%;
+    transition-property: border-bottom-color;
+    transition-duration: .6s;
+}
+
+.form__input:link,
+.form__input:visited,
+.form__input:hover,
+.form__input:focus {
+    border-bottom: 1px solid lightseagreen;
+}
+
+.form__input--error {
+    border-bottom-color: crimson;
+}

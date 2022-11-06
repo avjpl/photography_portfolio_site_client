@@ -1,0 +1,17 @@
+.form__field {
+    display: flex;
+    margin-bottom: var(--space10);
+}
+
+.form__label {
+    flex: 1 1 350px;
+    display: inline-block;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.form__select {
+    border: 1px solid var(--light-gray);
+    padding: 5px 10px;
+    width: 100%;
+}
