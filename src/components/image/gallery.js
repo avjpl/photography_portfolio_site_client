@@ -11,7 +11,7 @@ const Gallery = ({ gallery }) => {
 
   useEffect(() => {
     (async () => {
-      await getImageByCategory({ variables: { category: gallery?.toUpperCase(), width: 828 } });
+      await getImageByCategory({ variables: { category: gallery?.toUpperCase(), width: 1080 } });
     })();
   }, [gallery, getImageByCategory]);
 
@@ -20,13 +20,17 @@ const Gallery = ({ gallery }) => {
   }
 
   return (
-    <div className={css.gallery}>
-      {!loading && data?.images.map(({ filename, variants, exif }) => {
-        return (
-          <CustomImage key={filename} src={variants[0].src} />
-        );
-      })}
-    </div>
+    <section className={css.gallery}>
+      <div>
+        {!loading && data?.images.map(({ filename, variants, exif }) => {
+          // console.log(JSON.parse(exif));
+
+          return (
+              <CustomImage key={filename} {...variants[0]} />
+          );
+        })}
+      </div>
+    </section>
   );
 };
 

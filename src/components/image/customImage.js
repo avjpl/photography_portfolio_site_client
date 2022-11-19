@@ -1,23 +1,29 @@
 import NextImage from "next/image";
+import { useState } from "react";
 
-const myLoader = ({ src }) => {
-    return `http://localhost:8080${src}`; // http://localhost:8080 is the endpoint for imgproxy locally
-};
+// http://localhost:8080 is the endpoint for imgproxy locally
+const imageBase = 'http://localhost:8080';
 
-const Image = ({ src }) => {
+const myLoader = ({ src }) => src;
+
+const AssetImage = ({ src, width, height }) => {
+    const imageSrc = `${imageBase}${src}`;
+
+    const [dimension, setDimension] = useState({ width: 0, height: 0 });
+
     return (
         <NextImage
             loader={myLoader}
-            src={src}
+            src={imageSrc}
             alt=""
-            width={0}
-            height={0}
+            width={width}
+            height={height}
             layout="responsive"
             priority
-            objectFit="contain"
-            objectPosition="100% 40%"
+            objectFit="cover"
+            unoptimized={true}
         />
     );
 };
 
-export default Image;
+export default AssetImage;

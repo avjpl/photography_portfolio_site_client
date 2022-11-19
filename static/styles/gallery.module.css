@@ -1,3 +1,4 @@
+/*
 .gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(375px, 1fr));
@@ -22,4 +23,28 @@
 
 .gallery__image--wrapper {
     position: relative;
+}
+*/
+
+.gallery > div img {
+    display: block;
+    margin-bottom: 1.25rem;
+}
+
+.gallery > div {
+    columns: 32em;
+    gap: 1.25rem;
+    padding-top: 1.25rem;
+}
+
+.gallery > div > span {
+    margin-bottom: 1.25rem !important;
+}
+
+.gallery:hover img {
+    opacity: 0.7;
+}
+
+.gallery:hover img:hover {
+    opacity: 1;
 }

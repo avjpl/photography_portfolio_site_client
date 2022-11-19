@@ -1,15 +1,26 @@
 import { gql } from '@apollo/client';
 
+const CORE_VARIANT_FIELDS = gql`
+  fragment CoreVariantFields on Variant {
+    id
+    category
+    height
+    width
+    src
+    orientation
+  }
+`;
+
 export const GET_ASSET_FILES = gql`
+  ${CORE_VARIANT_FIELDS}
+
   query getAssetFiles {
     variants: getFiles {
       getFiles {
           id
           filename
           variants {
-            category
-            width
-            src
+            ...CoreVariantFields
           }
           exif
       }
@@ -18,14 +29,14 @@ export const GET_ASSET_FILES = gql`
 `;
 
 export const GET_FILES_BY_SIZE = gql`
+  ${CORE_VARIANT_FIELDS}
+
   query getFilesBySize($width: Int!) {
     variants: getFilesBySize(width: $width) {
       id
       filename
       variants {
-        category
-        width
-        src
+        ...CoreVariantFields
       }
       exif
     }
@@ -43,17 +54,16 @@ export const GET_FILES_BY_SIZE = gql`
 // `;
 
 export const GET_IMAGE_BY_CATEGORY = gql`
-    query getImageByCategory($category: Catgegory!, $width: Int!) {
-        images: getImageByCategory(category: $category, width: $width) {
-            id
-            filename
-            variants {
-                id
-                category
-                src
-                width
-            }
-            exif
-        }
+  ${CORE_VARIANT_FIELDS}
+
+  query getImageByCategory($category: Catgegory!, $width: Int!) {
+    images: getImageByCategory(category: $category, width: $width) {
+      id
+      filename
+      variants {
+        ...CoreVariantFields
+      }
+      exif
     }
+  }
 `;
