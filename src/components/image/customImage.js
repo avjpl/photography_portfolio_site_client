@@ -9,8 +9,6 @@ const myLoader = ({ src }) => src;
 const AssetImage = ({ src, width, height }) => {
     const imageSrc = `${imageBase}${src}`;
 
-    const [dimension, setDimension] = useState({ width: 0, height: 0 });
-
     return (
         <NextImage
             loader={myLoader}
